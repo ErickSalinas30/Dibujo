@@ -21,6 +21,7 @@ public class PanelPaint extends JPanel implements MouseListener {
     private int y1 = 0;
     private int x2 = 0;
     private int y2 = 0;
+    private int click= 0;
     private Color colorLinea = Color.BLACK;
 
     public PanelPaint() {
@@ -49,10 +50,18 @@ public class PanelPaint extends JPanel implements MouseListener {
     public void mouseReleased(MouseEvent e) {
         //   JOptionPane.showMessageDialog(this, e.getPoint());
         
-        this.x1 = e.getX();
-        this.y1 = e.getY();
-        this.x2 = 500;
-        this.y2 = 500;
+        if (click==0) {
+            this.x1=e.getX();
+            this.y1=e.getY();
+                        
+        }
+        if (click==1) {
+            this.x2=e.getX();
+            this.y2=e.getY();
+            click= -1;
+                        
+        }
+        click ++;
         super.repaint();
     }
 
